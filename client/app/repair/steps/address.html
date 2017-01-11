@@ -1,0 +1,71 @@
+<script type="text/ng-template" id="control.tpl.html">
+  <button class="btn btn-default btn-gps-position" ng-click="getGpsLocation()">
+    <i ng-class="loadingGpsPosition ? 'fa fa-clock-o' : 'fa fa-location-arrow'"></i>
+  </button>
+</script>
+
+<div class="row">
+  <div class="col-sm-6 col-sm-offset-3">
+
+    <div align="center">
+      <h2>Address</h2>
+      <h3>Please tell us where the repairer will meet you</h3>
+    </div>
+
+    <br/>
+
+    <form name="origin" form-step-validity>
+      <label for="pickUpAddress">Address</label>
+      <input type="text" id="pickUpAddress" name="pickUpAddress" g-places-autocomplete
+             options="autocompleteOptions" data-ng-model="pickUpAddress" class="form-control"
+             placeholder="Street, #, City"
+             required/>
+      <br/>
+
+      <label for="pickUpReferences">References</label>
+      <textarea rows="2" id="pickUpReferences" name="pickUpReferences"
+                data-ng-model="order.pickup.references"
+                class="form-control delivery-textarea"
+                placeholder="Near Mall, Yellow Door"></textarea>
+
+      <br/>
+
+      <ui-gmap-google-map
+        center="map.center"
+        zoom="map.zoom"
+        options="map.options"
+        control="map.control"
+        events="map.events">
+        <ui-gmap-map-control
+          template="control.tpl.html"
+          position="top-right"
+          controller="ControlGpsPositionController"
+          index="-1">
+        </ui-gmap-map-control>
+        <ui-gmap-marker
+          coords="marker.coords"
+          options="marker.options"
+          events="marker.events"
+          idkey="marker.id">
+        </ui-gmap-marker>
+      </ui-gmap-google-map>
+
+      <small>*It is necessary that the PIN is as close as possible to the repair site.</small>
+
+
+    </form>
+
+  </div>
+</div>
+
+<div class="row">
+  <!-- Continue -->
+  <div class="col-sm-4 col-sm-offset-4">
+    <br>
+    <button ng-disabled="!pickUpAddress" class="btn btn-default col-xs-12" ng-click="validPosition()">
+      Continue <i class="fa fa-chevron-right"></i>
+    </button>
+    <br><br>
+    <span ng-show="errorMsg" style="color: red;">{{ errorMsg }}</span>
+  </div>
+</div>

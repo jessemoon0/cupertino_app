@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-sm-12">
+
+    <div align="center">
+      <h2>What can we help you with?</h2>
+    </div>
+
+    <br/>
+
+    <div ng-cloak flex class="grid-issue centered">
+      <md-grid-list
+        md-cols-sm="1" md-cols-md="2" md-cols-gt-md="4"
+        md-row-height-gt-md="1:1" md-row-height="1:1"
+        md-gutter="12px" md-gutter-gt-sm="8px" >
+        <md-grid-tile ng-repeat="issue in issues"
+                      md-rowspan="1"
+                      md-colspan="1"
+                      md-colspan-sm="1"
+                      ng-class="'grid-tile blue'"
+                      ng-click="selectIssue($index)">
+          <h3>{{issue}}</h3>
+        </md-grid-tile>
+      </md-grid-list>
+    </div>
+
+  </div>
+</div>

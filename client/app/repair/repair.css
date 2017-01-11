@@ -1,0 +1,56 @@
+
+
+/*# sourceMappingURL=repair.css.map */
+
+md-grid-list {
+  margin: 8px; }
+.gray {
+  background: #f5f5f5; }
+.green {
+  background: #b9f6ca; }
+.yellow {
+  background: #ffff8d; }
+.blue {
+  background: #428bca; }
+.purple {
+  background: #b388ff; }
+.red {
+  background: #ff8a80; }
+.orange {
+  background: #ff960b;
+}
+md-grid-tile {
+  transition: all 400ms ease-out 50ms;
+}
+
+.centered {
+  margin: 0 auto;
+}
+
+.grid-device {
+  width: 75%;
+}
+.grid-model {
+  width: 55%;
+}
+.grid-issue {
+  width: 75%;
+}
+
+.button-back-repair {
+  font-size: 40px;
+}
+.angular-google-map-container {
+  height: 260px;
+  border: 1px solid #cccccc;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+.angular-google-map {
+  height: 300px;
+}
+.btn-gps-position {
+  margin: 10px;
+}
+

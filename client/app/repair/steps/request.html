@@ -1,0 +1,45 @@
+<div class="row">
+  <div class="col-sm-6 col-sm-offset-3">
+
+    <div align="center">
+      <h2>¡You are almost finished!</h2>
+      <h3>Where are we sending the receipt?</h3>
+    </div>
+
+    <br/>
+
+    <form name="form" novalidate class="css-form" form-step-validity>
+
+      <label for="customerName">Full name *</label>
+      <input type="text" id="customerName" name="customerName" placeholder="Ex. Steve Austin"  data-ng-model="order.customer.displayName" class="form-control" required/>
+
+      <br/>
+
+      <label for="phoneNumber">Cellphone <span ng-hide="form.phoneNumber.$error.maxlength || form.phoneNumber.$error.minlength">*</span></span><span class="delvivery-label label-title" ng-show="form.phoneNumber.$error.maxlength || form.phoneNumber.$error.minlength">Number must have 10 digits</span></label>
+      <input type="number" string-to-number id="phoneNumber" name="phoneNumber"  ng-maxlength="10" ng-minlength="10" data-ng-model="order.customer.phoneNumber" class="form-control" placeholder="Ex. 305-455-5544" ng-pattern="/\d{10}/" restrict-numeric required/>
+
+      <br/>
+
+      <label for="email">Email <span ng-hide="form.email.$error.email">*</span></span><span class="delvivery-label label-title" ng-show="form.email.$error.email">Verify your email</span></label>
+      <input type="email" id="email" name="email"  data-ng-model="order.customer.email" class="form-control" placeholder="example@jessie.com" required/>
+
+      <br/>
+
+      <p align="center"> {{ loading }}</p>
+      <p align="center"> {{ errMsg }}</p>
+
+    </form>
+
+
+  </div>
+</div>
+
+<div class="row">
+  <!-- Continue -->
+  <div class="col-sm-4 col-sm-offset-4">
+    <br/><br/>
+    <button ng-disabled="!form.$valid || loading" class="btn btn-default col-xs-12" ng-click="requestOrder()">
+      Request Repair <i class="fa fa-chevron-right"></i>
+    </button>
+  </div>
+</div>

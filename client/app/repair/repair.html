@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+
+      <!-- Show the steps you have made. 3rd party library. In bower.json-->
+      <div ncy-breadcrumb></div>
+
+      <button class="btn btn-default" ng-click="goBack()" ng-show="showBackButton">
+        <i class="glyphicon glyphicon-arrow-left button-back-repair"></i>
+      </button>
+      <div style="height:30px" ng-hide="showBackButton">
+      </div>
+
+      <br/>
+
+      <div ui-view=""></div>
+
+    </div>
+  </div>
+</div>
